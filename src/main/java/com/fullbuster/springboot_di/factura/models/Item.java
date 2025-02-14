@@ -28,4 +28,8 @@ public class Item {
     public void setQuantify(Integer quantify) {
         this.quantify = quantify;
     }
+
+    public int getAmount() {
+        return quantify * product.getPrice();
+    }
 }
