@@ -5,7 +5,13 @@ public class Item {
     private Product product;
     private Integer quantify;
 
+    public Item() {
+    }
 
+    public Item(Product product, Integer quantify) {
+        this.product = product;
+        this.quantify = quantify;
+    }
 
     public Product getProduct() {
         return product;
