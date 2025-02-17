@@ -1,6 +1,7 @@
 package com.fullbuster.springboot_di.factura.models;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,6 +34,11 @@ public class Invoice {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Destruyendo el componete Invoice");
     }
 
     public Client getClient() {
