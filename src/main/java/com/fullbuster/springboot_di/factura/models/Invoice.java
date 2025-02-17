@@ -1,5 +1,6 @@
 package com.fullbuster.springboot_di.factura.models;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +19,21 @@ public class Invoice {
     @Qualifier("itemsInvoiceOffice")
     private List<Item> items;
 
+    @PostConstruct
+    public void init() {
+        // Lógica de inicialización aquí
+        System.out.println("Inicializando MiServicio...");
+        System.out.println("Cargando configuraciones...");
 
+        try {
+            System.out.println("Estableciendo conexión a la base de datos...");
+            //connection = DriverManager.getConnection(url, username, password);
+            System.out.println("Conexión a la base de datos establecida.");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     public Client getClient() {
         return client;
